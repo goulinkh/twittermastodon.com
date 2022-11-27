@@ -84,13 +84,16 @@ async function getOrCreateApp(selfUrl, server) {
       client = await instance.apps.create({
         clientName: "Twitter to Mastodon",
         redirectUris: redirectUri.href,
-        scopes: "read write follow push",
+        scopes: "write:follows read:accounts",
         website: "https://twittermastodon.com",
       })
     } catch {
       throw new Error("Failed to reach the Mastodon instance")
     }
-    await set(server, { ...client, scopes: "read write follow push" })
+    await set(server, {
+      ...client,
+      scopes: "write:follows read:accounts",
+    })
     registeredApp = get(server)
   }
   return registeredApp

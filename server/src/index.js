@@ -36,19 +36,26 @@ fastify.register(require("@fastify/cors"), {
 
 async function userState(request) {
   let { twitter, mastodon } = request.session.data()
-  twitter = twitter?.accessToken
-    ? {
-        ...(await myTwitterAccount(twitter.accessToken)).data,
-        accessToken: twitter.accessToken,
-      }
-    : null
-
-  mastodon = mastodon?.accessToken
-    ? {
-        ...(await myMastodonAccount(mastodon.server, mastodon.accessToken)),
-        accessToken: mastodon.accessToken,
-      }
-    : null
+  try {
+    twitter = twitter?.accessToken
+      ? {
+          ...(await myTwitterAccount(twitter.accessToken)).data,
+          accessToken: twitter.accessToken,
+        }
+      : null
+  } catch {
+    twitter = null
+  }
+  try {
+    mastodon = mastodon?.accessToken
+      ? {
+          ...(await myMastodonAccount(mastodon.server, mastodon.accessToken)),
+          accessToken: mastodon.accessToken,
+        }
+      : null
+  } catch {
+    mastodon = null
+  }
   request.session.set("twitter", twitter)
   request.session.set("mastodon", mastodon)
   return { twitter, mastodon }
