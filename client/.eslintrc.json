@@ -1,0 +1,34 @@
+{
+  "extends": ["next/core-web-vitals"],
+  "rules": {
+    "react-hooks/exhaustive-deps": "off",
+    "import/order": [
+      "warn",
+      {
+        "groups": [
+          "index",
+          "sibling",
+          "parent",
+          "internal",
+          "external",
+          "builtin",
+          "object",
+          "type"
+        ]
+      }
+    ],
+    "padding-line-between-statements": [
+      "warn",
+      {
+        "blankLine": "always",
+        "prev": "import",
+        "next": "*"
+      },
+      {
+        "blankLine": "never",
+        "prev": "import",
+        "next": "import"
+      }
+    ]
+  }
+}

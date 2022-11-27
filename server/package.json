@@ -1,0 +1,29 @@
+{
+  "name": "twittermastodon",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": {
+    "email": "contact@goulin.fr",
+    "name": "Goulin Khoge",
+    "url": "https://goulin.fr"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "format": "eslint --fix ./src && prettier --write ./src"
+  },
+  "dependencies": {
+    "@fastify/cors": "^8.2.0",
+    "@fastify/secure-session": "^5.2.0",
+    "better-sqlite3": "^8.0.0",
+    "fastify": "^4.10.2",
+    "masto": "^4.6.5",
+    "node-fetch": "2",
+    "node-schedule": "^2.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.28.0",
+    "nodemon": "^2.0.20",
+    "prettier": "^2.8.0"
+  }
+}

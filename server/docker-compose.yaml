@@ -1,0 +1,22 @@
+version: "3"
+services:
+  web:
+    build: .
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8080/ping" ]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    restart: always
+    ports:
+      - 3000:8080
+    environment:
+      - SECRET_KEY=super-secret-key
+      - BACKUP_DIR=/src/backups
+      - DASHBOARD_URL=https://twittermastodon.com
+      - PUBLIC_URL=http://localhost:8080
+      - TWITTER_CLIENT_ID=twitter-id
+
+    volumes:
+      - ./backups:/src/backups

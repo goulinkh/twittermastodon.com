@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Mona Sans";
+  src: url("/fonts/Mona-Sans.woff2") format("woff2 supports variations"),
+    url("/fonts/Mona-Sans.woff2") format("woff2-variations");
+  font-weight: 200 900;
+  font-stretch: 75% 125%;
+}
+
+@font-face {
+  font-family: "Hubot Sans";
+  src: url("/fonts/Hubot-Sans.woff2") format("woff2 supports variations"),
+    url("/fonts/Hubot-Sans.woff2") format("woff2-variations");
+  font-weight: 200 900;
+  font-stretch: 75% 125%;
+}
+
+body {
+  @apply px-5 dark:bg-black/95 dark:text-white/90 sm:px-3;
+}
+
+.container {
+  @apply mx-auto w-full max-w-4xl;
+}
+
+.bird-animation {
+  position: relative;
+  width: 100%;
+}
+.bird-animation svg {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  animation: fly 80s, bounce1 8s ease infinite, bounce2 3s ease infinite;
+}
+@keyframes fly {
+  from {
+    left: 0%;
+  }
+  to {
+    left: 100%;
+  }
+}
+
+@keyframes bounce1 {
+  from {
+    top: 0;
+  }
+  50% {
+    top: 3px;
+  }
+  to {
+    top: 0;
+  }
+}
+
+@keyframes bounce2 {
+  from {
+    transform: rotate(-2deg);
+  }
+  20% {
+    transform: rotate(2deg);
+  }
+  to {
+    transform: rotate(-2deg);
+  }
+}
