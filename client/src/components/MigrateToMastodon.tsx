@@ -62,7 +62,7 @@ export default function MigrateToMastodon({ ready }: { ready: boolean }) {
       {requestState === "loading" ? <Loading /> : null}
       <button
         className={clsx(
-          "flex w-64 items-center justify-center gap-2 rounded-lg py-2 px-4 text-center font-semibold text-black transition-[background]  dark:text-white",
+          "flex w-full items-center justify-center gap-2 rounded-lg py-2 px-4 text-center font-semibold text-black transition-[background] dark:text-white  md:w-64",
           {
             "bg-sky-400/70 hover:bg-sky-400/90 dark:bg-sky-600/90 dark:hover:bg-sky-600":
               !requestState && ready,

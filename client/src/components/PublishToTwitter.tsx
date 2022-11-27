@@ -85,8 +85,8 @@ export default function PublishToTwitter({
             <CodeCopyPastBtn content={twitterNewDescription} />
             <code
               className="block
-            w-96 rounded-lg border border-black/5 bg-black/5 py-4
-            pl-4 pr-8 text-xs transition-[background] placeholder:text-black/50 hover:bg-black/[6%] dark:border-white/5 dark:bg-white/5 dark:hover:bg-white/[6%]"
+              w-full rounded-lg border border-black/5 bg-black/5 py-4 pl-4
+            pr-8 text-xs transition-[background] placeholder:text-black/50 hover:bg-black/[6%] dark:border-white/5 dark:bg-white/5 dark:hover:bg-white/[6%] md:w-96"
               dangerouslySetInnerHTML={{
                 __html: twitterNewDescription.replace("\n", "<br/>"),
               }}
@@ -99,7 +99,7 @@ export default function PublishToTwitter({
       return (
         <button
           className={clsx(
-            "flex w-64 items-center justify-center gap-2 rounded-lg py-2 px-4 text-center font-semibold text-black transition-[background]  dark:text-white",
+            "flex w-full items-center justify-center gap-2 rounded-lg py-2 px-4 text-center font-semibold text-black transition-[background] dark:text-white  md:w-64",
             {
               "bg-sky-400/70 hover:bg-sky-400/90 dark:bg-sky-600/90 dark:hover:bg-sky-600":
                 ready,
